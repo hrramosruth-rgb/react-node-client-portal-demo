@@ -5,3 +5,4 @@ Code created in October 2026. Dates below are illustrative, assigned to meaningf
 | Simulated date | Actual change |
 | --- | --- |
 | 2024-09-12 | chore: scaffold React and Express demo with simulated-history disclosure |
+| 2024-12-12 | feat: enforce client boundaries and persist project task transitions |
