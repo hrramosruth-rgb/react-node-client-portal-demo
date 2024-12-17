@@ -8,3 +8,4 @@ Code created in October 2026. This history was split into smaller commits in Oct
 | 2024-10-06 | build: configure root dependencies (package.json) |
 | 2024-10-30 | feat: add or refine index.html (index.html, vite.config.js) |
 | 2024-11-23 | feat: add or refine server/index.js (server/index.js) |
+| 2024-12-17 | feat: add or refine src/main.jsx (src/main.jsx) |
