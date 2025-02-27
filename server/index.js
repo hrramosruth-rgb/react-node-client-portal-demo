@@ -1,4 +1,3 @@
-import express from 'express';
-const app = express();
-app.get('/api/health', (_req, res) => res.json({status:'ok', demo:true}));
-app.listen(3001, '127.0.0.1', () => console.log('Demo API: http://127.0.0.1:3001'));
+import { createApp } from './app.js';
+const port=Number(process.env.PORT||3001);
+createApp().listen(port,'127.0.0.1',()=>console.log(`Studio Desk demo: http://127.0.0.1:${port}`));
