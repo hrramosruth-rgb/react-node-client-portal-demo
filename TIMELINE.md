@@ -6,3 +6,4 @@ Code created in October 2026. Dates below are illustrative, assigned to meaningf
 | --- | --- |
 | 2024-09-12 | chore: scaffold React and Express demo with simulated-history disclosure |
 | 2024-12-12 | feat: enforce client boundaries and persist project task transitions |
+| 2025-03-13 | feat: add cookie sessions and ownership-protected Express API |
