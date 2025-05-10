@@ -14,3 +14,4 @@ Code created in October 2026. This history was split into smaller commits in Oct
 | 2025-02-27 | feat: add or refine server/index.js (server/index.js) |
 | 2025-03-23 | feat: add or refine src/main.jsx (src/main.jsx) |
 | 2025-04-16 | style: add responsive style presentation (src/style.css) |
+| 2025-05-10 | build: configure root dependencies (package.json) |
