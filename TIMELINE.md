@@ -16,3 +16,4 @@ Code created in October 2026. This history was split into smaller commits in Oct
 | 2025-04-16 | style: add responsive style presentation (src/style.css) |
 | 2025-05-10 | build: configure root dependencies (package.json) |
 | 2025-06-03 | feat: implement and verify domain (server/domain.js, tests/domain.test.js) |
+| 2025-06-27 | feat: implement and verify app (server/app.js, tests/api.test.js) |
