@@ -35,8 +35,8 @@ export function createApp({path=resolve('data/portal.json'),store=new PortalStor
   app.post('/api/logout',(req,res)=>{sessions.delete(req.sessionToken); res.clearCookie('portal_session',{...cookieOptions,maxAge:undefined}).sendStatus(204);});
   app.get('/api/clients',(req,res)=>res.json({clients:store.clients(req.user)}));
   app.get('/api/projects',(req,res)=>res.json({projects:store.projects(req.user)}));
-  app.post('/api/projects',(req,res)=>res.status(201).json({project:store.createProject(req.user,req.body)}));
-  app.post('/api/projects/:id/tasks',(req,res)=>res.status(201).json({task:store.createTask(req.user,req.params.id,req.body)}));
+  app.post('/api/projects',(req,res)=>res.status(201).json({project:store.createProject(req.user,req.body,req.get('Idempotency-Key'))}));
+  app.post('/api/projects/:id/tasks',(req,res)=>res.status(201).json({task:store.createTask(req.user,req.params.id,req.body,req.get('Idempotency-Key'))}));
   app.patch('/api/tasks/:id',(req,res)=>res.json({task:store.updateTask(req.user,req.params.id,req.body)}));
   app.use('/api',(_req,_res,next)=>next(new PortalError(404,'API route not found.')));
   app.use(express.static(resolve('dist')));

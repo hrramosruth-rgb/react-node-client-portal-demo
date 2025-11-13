@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync, readFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, readFileSync, unlinkSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PortalStore } from '../server/domain.js';
@@ -15,3 +15,6 @@ test('validates bounded task input before mutation', t=>{const {store}=fixture(t
 test('enforces task transitions and persists across restarts', t=>{const {store,path}=fixture(t); const task=store.createTask(client,'website',{title:'Review navigation'}); assert.equal(task.status,'todo'); assert.throws(()=>store.updateTask(client,task.id,{status:'done'}),{status:409}); assert.equal(store.updateTask(client,task.id,{status:'in_progress'}).status,'in_progress'); assert.equal(store.updateTask(client,task.id,{status:'done'}).status,'done'); assert.throws(()=>store.updateTask(client,task.id,{status:'todo'}),{status:409}); assert.equal(new PortalStore(path).projects(client)[0].tasks.at(-1).status,'done'); assert.doesNotMatch(readFileSync(path,'utf8'),/password/);});
 test('agency can manage client projects within tenant; clients cannot create projects', t=>{const {store}=fixture(t); assert.equal(store.clients(admin).length,2); assert.equal(store.clients(client).length,1); assert.throws(()=>store.createProject(client,{clientId:'north',name:'New'}),{status:403}); assert.throws(()=>store.createProject(admin,{clientId:'absent',name:'New'}),{status:404}); assert.throws(()=>store.createProject(admin,{clientId:'north',name:''}),{status:400}); assert.equal(store.createProject(admin,{clientId:'north',name:'Campaign'}).name,'Campaign'); assert.equal(store.projects(client).length,2);});
 test('missing task and invalid status return actionable errors', t=>{const {store}=fixture(t); assert.throws(()=>store.updateTask(client,'missing',{status:'done'}),{status:404}); assert.throws(()=>store.updateTask(client,'brief',{status:'oops'}),{status:400}); assert.throws(()=>store.updateTask(other,'brief',{status:'in_progress'}),{status:404});});
+
+test('rejects malformed status values without mutation', t=>{const {store}=fixture(t); for(const status of [null,{},['in_progress'],'__proto__']) assert.throws(()=>store.updateTask(client,'brief',{status}),{status:400}); assert.equal(store.projects(client)[0].tasks[0].status,'todo');});
+test('failed disk writes leave the in-memory state unchanged', t=>{const {store,path}=fixture(t); const before=store.projects(client); unlinkSync(path); mkdirSync(path); assert.throws(()=>store.createTask(client,'website',{title:'Cannot persist'})); assert.deepEqual(store.projects(client),before);});
