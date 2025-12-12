@@ -23,3 +23,4 @@ Code created in October 2026. This history was split into smaller commits in Oct
 | 2025-10-01 | build: configure root dependencies (package.json, package-lock.json) |
 | 2025-10-25 | feat: implement and verify domain (server/domain.js, tests/domain.test.js) |
 | 2025-11-18 | feat: implement and verify app (server/app.js, tests/api.test.js) |
+| 2025-12-12 | build: configure vite.config.js (vite.config.js) |
