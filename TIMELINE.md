@@ -25,3 +25,4 @@ Code created in October 2026. This history was split into smaller commits in Oct
 | 2025-11-18 | feat: implement and verify app (server/app.js, tests/api.test.js) |
 | 2025-12-12 | build: configure vite.config.js (vite.config.js) |
 | 2026-01-05 | test: add account-switch verification (e2e/account-switch.cjs) |
+| 2026-01-29 | feat: add or refine server/index.js (server/index.js) |
