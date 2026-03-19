@@ -9,3 +9,4 @@ Code created in October 2026. Dates below are illustrative, assigned to meaningf
 | 2025-03-13 | feat: add cookie sessions and ownership-protected Express API |
 | 2025-07-17 | feat: build responsive client dashboard and agency project workspace |
 | 2025-11-13 | fix: persist retry keys and verify concurrent task creation with CI |
+| 2026-03-19 | docs: document demo credentials API boundaries and verified browser flows |
