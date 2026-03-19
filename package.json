@@ -12,15 +12,18 @@
     "server": "node server/index.js",
     "build": "vite build",
     "start": "node server/index.js",
-    "format:check": "prettier --check server src tests vite.config.js"
+    "format:check": "prettier --check server src tests vite.config.js",
+    "test:browser": "node e2e/account-switch.cjs"
   },
   "dependencies": {
-    "express": "5.1.0",
-    "react": "19.1.1",
-    "react-dom": "19.1.1"
+    "express": "5.2.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "vite": "7.1.7",
-    "supertest": "7.1.4"
+    "vite": "8.3.3",
+    "supertest": "7.1.4",
+    "prettier": "3.6.2",
+    "playwright": "1.62.1"
   }
 }

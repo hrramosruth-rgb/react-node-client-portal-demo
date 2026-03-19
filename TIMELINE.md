@@ -10,3 +10,4 @@ Code created in October 2026. Dates below are illustrative, assigned to meaningf
 | 2025-07-17 | feat: build responsive client dashboard and agency project workspace |
 | 2025-11-13 | fix: persist retry keys and verify concurrent task creation with CI |
 | 2026-03-19 | docs: document demo credentials API boundaries and verified browser flows |
+| 2026-03-19 | Clear expired account state and verify login isolation |

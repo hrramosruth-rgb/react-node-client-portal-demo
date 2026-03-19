@@ -105,3 +105,12 @@ This is a single-process, local demonstration with shared public credentials. It
 Production deployment would require real authentication, secrets, HTTPS, a transactional database, stronger operational controls, and independent security review. The public demo login is not a production security claim.
 
 MIT licensed.
+
+Optional account-switch browser regression, after the production build:
+
+```sh
+npx playwright install chromium
+npm run test:browser
+```
+
+This reproduces an expired session followed by a failed new-account refresh and checks that the prior account's workspace is cleared.
